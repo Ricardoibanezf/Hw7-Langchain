@@ -96,7 +96,8 @@ branch = RunnableBranch(
 
 full_chain = {"exp_type": flight_chain, "text": lambda x: x["experience_user"]} | branch
 
-langchain.debug = False
+import langchain
+langchain.debug = False
 
 response = full_chain.invoke({"experience_user": prompt})
 
