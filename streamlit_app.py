@@ -36,7 +36,7 @@ flight_chain = (
 positive_chain = PromptTemplate.from_template(
     """You are a travel agent, who is a specializes on customer experience.\
 You should thank them for their feedback and for choosing to fly with the airline.
-The tone should be professional.
+The tone should be professional. Your answers will be on first person, remember its not a mail, its an interaction with a customer
 
 Text:
 {text}
@@ -49,7 +49,7 @@ airline_negative_chain = PromptTemplate.from_template(
     """You are a travel agent, who is a specializes on customer experience.\
 Offer sympathies and inform the user that customer service will contact them soon to resolve the issue or provide compensation
 
-The tone should be professional.
+The tone should be professional.Your answers will be on first person, remember its not a mail, its an interaction with a customer
     
 Text:
 {text}
@@ -62,7 +62,7 @@ non_airline_negative_chain = PromptTemplate.from_template(
     """You are a travel agent, who is a specializes on customer experience..\
 Offer sympathies and give a concise explanation that the airline is not liable in such situations.
 
-The tone should be professional.
+The tone should be professional. Your answers will be on first person, remember its not a mail, its an interaction with a customer
 
 Text:
 {text}
@@ -71,7 +71,7 @@ Text:
 ) | llm
 
 main_chain = PromptTemplate.from_template(
-    """You are a travel agentwho specicializes on customer experiences, your answers will be on first person, remember its not a mail, its an interaction with a customer.". 
+    """You are a travel agent who specicializes on customer experiences, your answers will be on first person, remember its not a mail, its an interaction with a customer.". 
 
 Text:
 {text}
