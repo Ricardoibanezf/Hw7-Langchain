@@ -22,7 +22,7 @@ llm = ChatOpenAI(openai_api_key=my_secret_key, model="gpt-4o-mini")
 prompt_syst1 = """
 You are a travel agent specializing in customer experience. Based on the provided text, determine:
 1) "airline_negative" if the user had a negative experience due to the airline's fault.
-2) "non_fault_airline_negative" if the user had a negative experience that was not the airline's fault.
+2) "non_fault_airline_negative" if the user had a negative experience and is not the airline's fault, this coudl be because he arrived late or something else.
 3) "positive" if the user had a positive experience.
 
 Text:
