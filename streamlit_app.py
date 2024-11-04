@@ -4,6 +4,7 @@ from langchain.llms import OpenAI
 import os
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
 st.title("🛫 Airline experience")
 
