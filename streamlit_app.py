@@ -19,15 +19,14 @@ os.environ["openai_api_key"] = my_secret_key
 llm = ChatOpenAI(openai_api_key=my_secret_key, model="gpt-4o-mini")
 
 
-prompt_syst1 = """You are a travel agent, who is a specializes on customer experience, and you are going to analyze the experience from the users and provide 3 types of responses.
-From the text provided next, you are going to determine:
-1) If the user had a negative experience and is fault of the airline, you will answer "airline_negative" 
-2) If the user had negative experience and is not fault of the airline (such as arriving late to the airport),  you will answer "non_fault_airline_negative"
-3) If the user had a positive experience, you will answer "positive".
+prompt_syst1 = """
+You are a travel agent specializing in customer experience. Based on the provided text, determine:
+1) "airline_negative" if the user had a negative experience due to the airline's fault.
+2) "non_fault_airline_negative" if the user had a negative experience that was not the airline's fault.
+3) "positive" if the user had a positive experience.
 
 Text:
 {experience_user}
-
 """
 
 flight_chain = (
@@ -91,15 +90,13 @@ branch = RunnableBranch(
     main_chain
 )
 
-### Put all the chains together
+
 full_chain = {"exp_type": flight_chain, "text": lambda x: x["experience_user"]} | branch
 
 
 
-response=full_chain.invoke({"experience_user": prompt})
+response = full_chain.invoke({"experience_user": prompt})
 
 
-### Display
-st.write(
-    response.content
-)
+
+st.write(response.content)
