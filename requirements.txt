@@ -4,4 +4,3 @@ langchain
 langchain-community
 langchain-openai
 langchain-core
-rom langchain_core.runnables import RunnableBranch
