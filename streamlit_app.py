@@ -21,9 +21,9 @@ llm = ChatOpenAI(openai_api_key=my_secret_key, model="gpt-4o-mini")
 
 prompt_syst1 = """You are a travel agent, who is a specializes on customer experience, and you are going to analyze the experience from the users and provide 3 types of responses.
 From the text provided next, you are going to determine:
-1) Whether the user had a negative experience and is fault of the airline, for which you will answer "airline_negative" 
-2) Whether the user had negative experience and is no fault of the airline (such as arriving late to the airport), for which you will answer "non_airline_negative"
-3) Whether the user had a positive experience, for which you will answer "positive".
+1) If the user had a negative experience and is fault of the airline, you will answer "airline_negative" 
+2) If the user had negative experience and is not fault of the airline (such as arriving late to the airport),  you will answer "non_fault_airline_negative"
+3) If the user had a positive experience, you will answer "positive".
 
 Text:
 {experience_user}
@@ -85,9 +85,9 @@ Text:
 
 
 branch = RunnableBranch(
-    (lambda x: "airline_negative" in x["exp_type"].lower(), airline_negative_chain),
-    (lambda x: "non_airline_negative" in x["exp_type"].lower(), non_airline_negative_chain),
-    (lambda x: "positive" in x["exp_type"].lower(), positive_chain),
+    (lambda x: "airline_negative" in x["flight_chain"].lower(), airline_negative_chain),
+    (lambda x: "non_fault_airline_negative" in x["flight_chain"].lower(), non_airline_negative_chain),
+    (lambda x: "positive" in x["flight_chain"].lower(), positive_chain),
     main_chain
 )
 
