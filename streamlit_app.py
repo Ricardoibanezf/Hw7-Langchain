@@ -4,7 +4,7 @@ from langchain.llms import OpenAI
 import os
 from langchain_openai import ChatOpenAI
 
-st.title("🎈 Airline experience")
+st.title("🛫 Airline experience")
 
 prompt = st.text_input("Share with us your experience of the latest trip. ")
 
