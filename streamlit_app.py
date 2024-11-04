@@ -86,7 +86,7 @@ Text:
 
 branch = RunnableBranch(
     (lambda x: "airline_negative" in x["exp_type"].lower(), airline_negative_chain),
-    (lambda x: "negative_non_airline_fault" in x["exp_type"].lower(), non_airline_negative_chain),
+    (lambda x: "non_airline_negative" in x["exp_type"].lower(), non_airline_negative_chain),
     (lambda x: "positive" in x["exp_type"].lower(), positive_chain),
     main_chain
 )
