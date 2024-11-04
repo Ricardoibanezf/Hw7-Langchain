@@ -2,6 +2,7 @@ import streamlit as st
 from openai import OpenAI
 from langchain.llms import OpenAI
 import os
+from langchain_openai import ChatOpenAI
 
 st.title("🎈 Airline experience")
 
