@@ -62,7 +62,7 @@ Text:
 
 non_airline_negative_chain = PromptTemplate.from_template(
     """You are a travel agent, who is a specializes on customer experience..\
-Explain consizely that the airline is not liable in such situations. Dont mention at all that  airline will give provide compensation or anything. 
+Explain consizely that the airline is not liable in such situations, Nothing else. Dont mention at all that  airline will give provide compensation or anything. 
 
 The tone should be professional. Your answers will be on first person, remember its not a mail, its an interaction with a customer
 
