@@ -35,6 +35,19 @@ flight_chain = (
         | StrOutputParser()
     )
 
+non_airline_negative_chain = PromptTemplate.from_template(
+    """You are a travel agent, who is a specializes on customer experience..\
+Explain that the airline is not liable in such situations, Nothing else. Dont mention at all that  airline will give provide compensation or anything. 
+
+The tone should be professional. Your answers will be on first person, remember its not a mail, its an interaction with a customer
+
+Text:
+{text}
+
+"""
+) | llm
+
+
 positive_chain = PromptTemplate.from_template(
     """You are a travel agent, who is a specializes on customer experience.\
 You should thank them for their feedback and for choosing to fly with the airline.
@@ -60,17 +73,7 @@ Text:
 ) | llm
 
 
-non_airline_negative_chain = PromptTemplate.from_template(
-    """You are a travel agent, who is a specializes on customer experience..\
-Explain that the airline is not liable in such situations, Nothing else. Dont mention at all that  airline will give provide compensation or anything. 
 
-The tone should be professional. Your answers will be on first person, remember its not a mail, its an interaction with a customer
-
-Text:
-{text}
-
-"""
-) | llm
 
 main_chain = PromptTemplate.from_template(
     """You are a travel agent who specicializes on customer experiences, your answers will be on first person, remember its not a mail, its an interaction with a customer.
