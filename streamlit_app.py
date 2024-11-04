@@ -71,8 +71,7 @@ Text:
 ) | llm
 
 main_chain = PromptTemplate.from_template(
-    """You are a customer experience app managing customer experiences\
-Request only: "Please enter your feedback in the text box". 
+    """You are a travel agentwho specicializes on customer experiences, your answers will be on first person, remember its not a mail, its an interaction with a customer.". 
 
 Text:
 {text}
