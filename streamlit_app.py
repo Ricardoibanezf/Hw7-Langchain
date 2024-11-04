@@ -74,7 +74,7 @@ Text:
 
 main_chain = PromptTemplate.from_template(
     """You are a travel agent who specicializes on customer experiences, your answers will be on first person, remember its not a mail, its an interaction with a customer.
-    Provide as an answer right now the following text: "I am here to help you, please provide your feedback". 
+    Provide only the following text: "I am here to help you". 
 
 Text:
 {text}
