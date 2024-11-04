@@ -20,7 +20,10 @@ llm = ChatOpenAI(openai_api_key=my_secret_key, model="gpt-4o-mini")
 
 
 prompt_syst1 = """You are a travel agent, who is a specializes on customer experience, and you are going to analyze the experience from the users and provide 3 types of responses.
-From the text provided next, you are going to determine whether the user had a negative experience that is fault of the airline, for which you will answer "airline_negative" , a negative experience that is no fault of the airline, for which you will answer "non_airline_negative" or a positive experience, for which you will answer "positive".
+From the text provided next, you are going to determine:
+1) Whether the user had a negative experience and is fault of the airline, for which you will answer "airline_negative" 
+2) Whether the user had negative experience and is no fault of the airline (such as arriving late to the airport), for which you will answer "non_airline_negative"
+3) Whether the user had a positive experience, for which you will answer "positive".
 
 Text:
 {experience_user}
